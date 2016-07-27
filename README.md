@@ -1,0 +1,2 @@
+# Konami
+konami code 
