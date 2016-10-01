@@ -5,3 +5,6 @@ a user on the website to input the konami code on the keyboard.
 
 Konami Code:
 up up down down left right left right b a enter(start)
+
+Technologies Used:
+- JavaScript
