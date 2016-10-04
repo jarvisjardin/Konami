@@ -4,5 +4,11 @@ Author: Jarvis Jardin <jarvisjardin@rocketmail.com>
 Date: July 27, 2016
 ------
 
-Javascript file to add to site that will do something when the konami code is inputed via the keyboard
+This is a JavaScript API written by Jarvis Jardin, that when implemented will add an event listen that will look for when 
+a user on the website to input the konami code on the keyboard. 
 
+Konami Code:
+up up down down left right left right b a enter(start)
+
+Technologies Used:
+- JavaScript
