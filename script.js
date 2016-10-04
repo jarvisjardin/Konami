@@ -1,65 +1,34 @@
-
-
 /*
-var script = document.createElement('script');
-script.src = 'http://code.jquery.com/jquery-1.11.0.min.js';
-script.type = 'text/javascript';
-document.getElementsByTagName('head')[0].appendChild(script);
-*/
-
-/*
-up 38
-
-down 40
-
-left 37
-
-right 39
-
-b 66
-
-a 65
-
-enter 13
+	Next Steps:
+		1) move this logic in to 'konami.js' 
+		2) configue code to act as an API
+		3) be able to call this code from script.js
+		4) figure out a way to include jQuery to the code so when implementing, users won't have to ( * if this is possible * )
 */
 
 
 $( document ).ready(function() {
-    console.log( "ready!" );
+	
+	konami_code = ["38","38","40","40","37","39","37","39","66","65","13"];
+	user_code = [];
 
-	window.addEventListener("keydown", keyDownTextField, false);
-
-	var konami_pattern = ["38","38","40","40","37","39","37","39","66","65","13"];
-	var update_pattern = konami_pattern;
-
+	window.addEventListener("keyup", keyDownTextField, false);	
+	
 	function keyDownTextField (e) {
-		var keyCode = e.keyCode;
-		
-/* 		console.log(keyCode); */
-	 
-/*
-		if(keyCode == '38'){
-			console.log('up');
-		}else if(keyCode == '40'){
-			console.log('down');
-		}else if(keyCode == '37'){
-			console.log('left');
-		}else if(keyCode == '39'){
-			console.log('right');
+		user_code.push(e.keyCode); // add keyCode to the user_code array.
+	
+		for(i=0;i<user_code.length;i++){ //foreach value in the user_code array. do a loop. i represent the array key
+			if(user_code[i] != konami_code[i]){ // if any of the values from user_code do not equal the values in konami_code array, clear user_code array and break from loop 
+				user_code= [];
+				break;
+			}
 		}
-*/
-	 	checkPattern(keyCode);
+		if(user_code.length == 11){ // if the length of user array equals 11, then the konami code was successfully inputed
+			success(); //run a success function.
+		}
 	}
 	
-	function checkPattern(x){
-		console.log(update_pattern);
-		console.log(update_pattern[0]);
-		
-		if(x == update_pattern[0]){
-			update_pattern.shift();
-		}else{
-			update_pattern = konami_pattern;
-		}
-	}
-
+	function success(){
+		alert("You entered the KONAMI CODE! Now do something speacial");	
+	};
 });
